@@ -5,8 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfClient"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="450" Width="800" MinWidth="800" >
+    <Grid ShowGridLines="True">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <StackPanel HorizontalAlignment="Center" Margin="0" VerticalAlignment="Top" Width="200">
+                <TextBlock x:Name="tbxLogin" Text="" HorizontalAlignment="Center" FontSize="36" Margin="0,5,0,0"/>
+                <Button x:Name="btnPhoneBook" Content="Записи" Padding="5" Margin="0,5,0,0" Command="{Binding PhoneBookCommand}"/>
+                <Button x:Name="btnUser" Content="Пользователи" Padding="5" Margin="0,5,0,0" Command="{Binding UserCommand}"/>
+                <Button x:Name="btnLogin" Content="Аккаунт" Padding="5" Margin="0,5,0,0" Command="{Binding LoginCommand}"/>
+                <Button x:Name="btnRole" Content="Роли" Padding="5" Margin="0,5,0,0" Command="{Binding RoleCommand}"/>
+            </StackPanel>
+        </Grid>
+
+        <Frame x:Name="MainFrame" Content="Frame" Margin="0" Source="Components/Pages/PhoneBookIndexPage.xaml" NavigationUIVisibility="Hidden" Grid.Column="1"/>
 
     </Grid>
+
 </Window>

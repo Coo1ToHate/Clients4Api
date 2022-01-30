@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using WpfClient.ViewModel;
 
 namespace WpfClient
 {
@@ -10,6 +11,12 @@ namespace WpfClient
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new MainWindowViewModel();
+
+            Application.Current.MainWindow = this;
+
+            btnUser.Visibility = Visibility.Collapsed;
+            btnRole.Visibility = Visibility.Collapsed;
         }
     }
 }

@@ -1,0 +1,40 @@
+﻿<Page x:Class="WpfClient.Components.Pages.PhoneBookIndexPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfClient.Components.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="500"
+      Title="PhoneBookIndexPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Orientation="Horizontal">
+            <Button Content="Добавить" Padding="5" Margin="0" Visibility="{Binding VisibilityAddBtn}" Command="{Binding AddCommand}"/>
+            <Button Content="Просмотр записи" Padding="5" Margin="5,0,0,0" Command="{Binding EditCommand}"/>
+            <Button Content="Удалить" Padding="5" Margin="5,0,0,0" Visibility="{Binding VisibilityDelBtn}" Command="{Binding DelCommand}"/>
+        </StackPanel>
+
+        <DataGrid Grid.Row="1" x:Name="Data"
+                  ItemsSource="{Binding PhoneBooks}"
+                  SelectedItem="{Binding SelectedPhoneBook}"
+                  Margin="2" BorderBrush="Blue" 
+                  VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"
+                  AutoGenerateColumns="False" IsReadOnly="True"
+                  CanUserResizeRows="False" SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding LastName}"/>
+                <DataGridTextColumn Header="Имя" Binding="{Binding FirstName}"/>
+                <DataGridTextColumn Header="Отчество" Binding="{Binding MiddleName}"/>
+                <DataGridTextColumn Header="Телефон" Binding="{Binding NumberPhone}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Page>
