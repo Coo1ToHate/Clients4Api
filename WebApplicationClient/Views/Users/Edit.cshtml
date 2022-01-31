@@ -1,0 +1,18 @@
+﻿@model EditUserViewModel
+@{
+    ViewBag.Title = $"Редактирование пользователя - {Model.LoginProp}";
+}
+
+<form asp-action="Edit" asp-controller="Users">
+    <div asp-validation-summary="All"></div>
+    <div>
+        <input type="hidden" asp-for="Id" />
+    </div>
+    <div>
+        <label asp-for="LoginProp"></label><br />
+        <input type="text" asp-for="LoginProp" />
+    </div>
+    <div>
+        <input type="submit" value="Сохранить" />
+    </div>
+</form>

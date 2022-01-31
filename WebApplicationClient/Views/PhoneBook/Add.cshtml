@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Добавить запись";
+}
+
+<div class="form">
+    <form asp-controller="PhoneBook" asp-action="AddRecord" method="post">
+        <p>Фамилия</p>
+        <input type="text" name="recordLastName" required />
+        <p>Имя</p>
+        <input type="text" name="recordFirstName" required />
+        <p>Отчество</p>
+        <input type="text" name="recordMiddleName" />
+        <p>Номер телефона</p>
+        <input type="tel" name="recordNumberPhone" required />
+        <p>Адрес</p>
+        <input type="text" name="recordAddress" />
+        <p>Описание</p>
+        <input type="text" name="recordDesc" />
+        <p><input type="submit" value="Добавить" /></p>
+    </form>
+</div>

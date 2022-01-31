@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Role>
+@{
+    ViewBag.Title = "Список ролей";
+}
+
+@await Component.InvokeAsync("MenuTopUserView")
+
+<a asp-action="Create" asp-controller="Roles">Добавить роль</a>
+
+<table class="role__table">
+    @foreach (var r in Model)
+    {
+        <tr>
+            <td>
+                @r.Name
+            </td>
+            <td>
+                <form asp-action="Delete" asp-route-id="@r.Id" method="post">
+                    <button class="btn-reset" type="submit">
+                        Удалить
+                    </button>
+                </form>
+            </td>
+        </tr>
+    }
+</table>

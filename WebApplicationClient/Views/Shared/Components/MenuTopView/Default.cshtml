@@ -1,0 +1,34 @@
+﻿<ul class="list-reset d-flex">
+    <li class="nav__item">
+        <a class="nav__link" href="/">Главная</a>
+    </li>
+    @if (Globals.LoggedInUser != null)
+    {
+
+        <li class="nav__item">
+            <a class="nav__link" asp-action="Add" asp-controller="PhoneBook">Добавить запись</a>
+        </li>
+
+        @if (Globals.IsAdmin())
+        {
+            <li class="nav__item">@Html.ActionLink("Пользователи", "Index", "Users", null, new { @class = "nav__link" })</li>
+        }
+
+        <li class="nav__item">
+            <form method="post" asp-controller="Account" asp-action="Logout">
+                <span>[ @Globals.LoggedInUser.UserName ]</span>
+                <button type="submit" class="btn-reset nav__link">Выход</button>
+            </form>
+        </li>
+
+    }
+    else
+    {
+        <li class="nav__item">
+            <a class="nav__link" asp-controller="Account" asp-action="Login">Вход</a>
+        </li>
+        <li class="nav__item">
+            <a class="nav__link" asp-controller="Account" asp-action="Register">Регистрация</a>
+        </li>
+    }
+</ul>

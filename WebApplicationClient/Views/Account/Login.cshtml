@@ -1,0 +1,22 @@
+﻿@model LoginViewModel
+@{
+    ViewBag.Title = "Вход в приложение";
+}
+
+<form method="post" asp-controller="Account" asp-action="Login"
+      asp-route-returnUrl="@Model.ReturnUrl">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div>
+        <label asp-for="LoginProp"></label><br />
+        <input asp-for="LoginProp" />
+        <span asp-validation-for="LoginProp"></span>
+    </div>
+    <div>
+        <label asp-for="Password"></label><br />
+        <input asp-for="Password" />
+        <span asp-validation-for="Password"></span>
+    </div>
+    <div>
+        <input type="submit" value="Войти" />
+    </div>
+</form>

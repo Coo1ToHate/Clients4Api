@@ -1,0 +1,29 @@
+﻿@model List<User>
+@{
+    ViewBag.Title = "Список пользователей";
+}
+
+@await Component.InvokeAsync("MenuTopUserView")
+
+<table class="user__table">
+    <tr>
+        <th>Имя</th>
+        <th></th>
+    </tr>
+    @foreach (var u in Model)
+    {
+        <tr>
+            <td>@u.UserName</td>
+            <td>
+                <form asp-action="Delete" asp-route-id="@u.Id" method="post">
+                    [
+                    <a asp-action="Edit" asp-route-id="@u.Id">Изменить</a> |
+                    <a asp-action="Edit" asp-controller="Roles" asp-route-userId="@u.Id">Права доступа</a> |
+                    <button class="btn-reset" type="submit">
+                        Удалить
+                    </button> ]
+                </form>
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,23 @@
+﻿@model PhoneBook
+@{
+    ViewBag.Title = $"Телефонная книжка - Редактор записи №{Model.Id}";
+}
+
+<div class="form">
+    <form asp-controller="PhoneBook" asp-action="EditRecord" method="post">
+        <p>Фамилия</p>
+        <input type="text" name="recordLastName" required value="@Model.LastName" />
+        <p>Имя</p>
+        <input type="text" name="recordFirstName" required value="@Model.FirstName" />
+        <p>Отчество</p>
+        <input type="text" name="recordMiddleName" value="@Model.MiddleName" />
+        <p>Номер телефона</p>
+        <input type="tel" name="recordNumberPhone" required value="@Model.NumberPhone" />
+        <p>Адрес</p>
+        <input type="text" name="recordAddress" value="@Model.Address" />
+        <p>Описание</p>
+        <input type="text" name="recordDesc" value="@Model.Desc" />
+        <input name="recordId" value="@Model.Id" type="hidden" />
+        <p><input type="submit" value="Редактировать" /></p>
+    </form>
+</div>
